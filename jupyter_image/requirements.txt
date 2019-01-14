@@ -1,0 +1,6 @@
+jupyter
+matplotlib
+pymysql
+ipython-sql
+pydataset
+pprint
