@@ -7,20 +7,18 @@ services:
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
     volumes:
-      - './mysql_persist:/bitnami'
+      - 'mariadb_data:/bitnami'
     ports:
       - '3306:3306'
 
   phpmyadmin:
     image: 'bitnami/phpmyadmin:latest'
-    labels:
-      kompose.service.type: nodeport
     ports:
       - '8080:80'
     depends_on:
       - mariadb
     volumes:
-      - './phpmyadmin_persist:/bitnami'
+      - 'phpmyadmin_data:/bitnami'
 
   jupyter:
     command: ["jupyter", "notebook", "--allow-root", "--ip=0.0.0.0", "--no-browser"]
@@ -31,6 +29,14 @@ services:
     # env_file:
     #     - jupyter_image.env
     volumes:
-        - ./python_scripts:/app/python_scripts
+        - jupyter_data:/app/python_scripts
     ports:
         - 8888:8888
+
+volumes:
+  mariadb_data:
+    driver: local
+  phpmyadmin_data:
+    driver: local
+  jupyter_data:
+    driver: local
