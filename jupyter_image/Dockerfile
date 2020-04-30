@@ -21,4 +21,6 @@ ENTRYPOINT ["/usr/bin/tini", "--"]
 RUN jupyter notebook --generate-config
 RUN echo "c.NotebookApp.password='sha1:b2157e7e9d2f:a7483810bac9f433f9c7417714eea86d3e14d011'">>/app/.jupyter/jupyter_notebook_config.py
 
+RUN echo "c.NotebookApp.notebook_dir ='/app/python_scripts'">>/app/.jupyter/jupyter_notebook_config.py
+
 EXPOSE 8888
