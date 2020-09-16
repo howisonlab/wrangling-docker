@@ -3,7 +3,6 @@ matplotlib
 pymysql
 ipython-sql
 pydataset
-pprint
 triegex
 nltk
 glob3
