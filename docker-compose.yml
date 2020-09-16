@@ -22,14 +22,12 @@ services:
     volumes:
       - 'phpmyadmin_data:/bitnami'
 
-  jupyter2:
+  jupyter:
     command: ["jupyter", "notebook", "--allow-root", "--ip=0.0.0.0", "--no-browser"]
     build:
         context: jupyter_image
     depends_on:
         - phpmyadmin
-    # env_file:
-    #     - jupyter_image.env
     volumes:
         - jupyter_data:/app/python_scripts
     ports:
