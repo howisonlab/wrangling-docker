@@ -13,6 +13,8 @@ services:
 
   phpmyadmin:
     image: 'bitnami/phpmyadmin:latest'
+    environment:
+      - PHPMYADMIN_ALLOW_REMOTE_CONNECTIONS=no
     ports:
       - '8080:80'
     depends_on:
@@ -20,7 +22,7 @@ services:
     volumes:
       - 'phpmyadmin_data:/bitnami'
 
-  jupyter:
+  jupyter2:
     command: ["jupyter", "notebook", "--allow-root", "--ip=0.0.0.0", "--no-browser"]
     build:
         context: jupyter_image
