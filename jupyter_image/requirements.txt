@@ -1,8 +1,8 @@
-jupyter
-matplotlib
-pymysql
-ipython-sql
-pydataset
-triegex
-nltk
-glob3
+jupyter==1.0.0
+matplotlib==3.2.1
+pymysql==0.9.3
+ipython-sql==0.3.9
+pydataset==0.2.0
+triegex==0.0.3
+nltk==3.5
+glob3==0.0.1
